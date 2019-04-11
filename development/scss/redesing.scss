@@ -60,6 +60,9 @@
 			left: 40px;
 		}
 	}// END mq_tablet
+	@include mq_360 {
+		padding-left: 0;
+	}
 }
 
 .header-contacts {
@@ -168,6 +171,9 @@
 		width: 23px;
 		height: 23px;
 		padding: 5px;
+	}
+	@include mq_360 {
+		margin-left: 0;
 	}
 	&__text {
 		display: block;
@@ -339,6 +345,9 @@
 			margin-top: -1px;
 			margin-left: 8px;
 		}// END mq_phone
+		@include mq_360 {
+			margin-left: 0;
+		}
 	}
 }// END .header-contacts
 
@@ -362,8 +371,8 @@
 		@include mq_tablet {
 			display: none;
 		}// END mq_tablet
-		@include mq_400 {
-			display: none;
+		@include mq_360 {
+			// display: none;
 		}
 	}
 	.callback-link{
@@ -431,6 +440,7 @@
 	}
 	@include mq_phone {
 		padding-bottom: 24px;
+		padding-bottom: 6px;
 		//.js-open-sidebar-menu {
 			// display: block;
 		    // position: relative;

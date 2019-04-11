@@ -66,3 +66,9 @@ $ff-roboto: 'Roboto Condensed', sans-serif;
         @content;
     }
 }
+
+@mixin mq_360() {
+    @media all and (max-width: 359px) {
+        @content;
+    }
+}
