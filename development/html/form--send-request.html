@@ -1,0 +1,91 @@
+@@include('header/head.html', {
+	"introORout":"intro"
+})
+
+
+<div class="site-wrapper">
+	<div class="site-wrapper__main">
+	@@include('header/header.html', {
+		"introORout":"out"
+	})
+	@@include('menu-area/menu-area.html')
+
+	<div class="container">
+		<div class="row">
+
+
+		<form class="form" action="#">
+			<h1>Заказать оборудование</h1>
+			<div class="form-inside">
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Наименование организации<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" type="text">
+				</label>
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">ФИО<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" type="text">
+				</label>
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Телефон<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" type="tel">
+				</label>
+
+
+
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">E-mail<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" type="text">
+				</label>
+
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Комментарии</span>
+					<textarea class='inputtextarea' name="textarea" cols="30" rows="5"></textarea>
+				</label>
+
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Наименование оборудования<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" type="text">
+				</label>
+
+
+				<label class="form-group form-group--file">
+					<div class="form-group__title">Прикрепить файл</div> <input name="form_file_38" class="inputfile" size="0" type="file"><span class="bx-input-file-desc"></span>
+				</label>
+				<div class="file-size">(максимальный размер файла 16 мегабайт)</div>
+				<div class="form-caption">
+					<svg class="icon icon-star form-caption__align"><use xlink:href="#icon-star"/></svg>
+					<span class="form-caption__align"> - Обязательные для заполнения поля</span>
+				</div>
+
+
+				@@include('personal-data/personal-data.html')
+				<input name="web_form_submit" value="Отправить" class="button buttonSend" type="button">
+
+
+
+			</div><!-- END form-inside -->
+		</form>
+
+
+		<input id="testBts" name="web_form_submit" value="Проверка модалки с сообщением об отправке - Запрос отправлен"  class="button buttonSend" type="button">
+
+
+
+
+
+		</div><!-- END row -->
+	</div><!-- END container -->
+</div><!-- END site-wrapper__main -->
+
+
+@@include('footer/footer.html')
+<script type="text/javascript">
+	$('#testBts').on('click', function(){
+		$.fancybox({
+			width: 490,
+			autoSize: true,
+			href: 'request-sent.html',
+			type: 'ajax'
+		});
+	});
+</script>

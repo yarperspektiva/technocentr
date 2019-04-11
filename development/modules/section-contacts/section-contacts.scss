@@ -1,0 +1,204 @@
+.section-contacts {
+	border-bottom: 1px solid #bfd8e8;
+	padding-top: 13px;
+	padding-bottom: 46px;
+	@include mq_phone {
+		padding-top: 2px;
+		padding-bottom: 30px;
+	}// END mq_phone
+	h1 + & {
+		padding-top: 10px;
+		@include mq_phone {
+			padding-top: 0;
+			margin-top: -4px;
+		}// END mq_phone
+
+		h2, .h2 {
+			margin-top: 0;
+		}
+	}
+
+	[href^="tel:"]:not(.contacts__free-call) {
+		&, &:hover {
+			color: #333;
+			text-decoration: none;
+		}
+	}
+
+	h2, .h2 {
+		font-size: 25px;
+		margin-bottom: 25px;
+		@include mq_phone {
+			font-size: 21px;
+			margin-bottom: 19px;
+		}// END mq_phone
+	}
+	h3, .h3 {
+		margin-top: 31px;
+		margin-bottom: 17px;
+
+		font-size: 22px;
+		color: #0065a5;
+		font-weight: normal;
+		@include mq_phone {
+			font-size: 20px;
+			line-height: 22px;
+		}// END mq_phone
+	}
+	+ h2 {
+		@include mq_phone {
+			margin-top: 42px;
+		}// END mq_phone
+	}
+}// END .section-contacts
+.contacts {
+	&-list {
+		display: block;
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		@at-root .content-area & > li {
+			// @include column-break;
+			width: 50%;
+			list-style: none;
+			margin: 23px 0 0 0;
+			@include mq_phone {
+				width: 100%;
+				margin-top: 14px;
+			}// END mq_phone
+			padding: 0;
+			&:before {
+				display: none;
+			}
+			&:nth-child(-n+2) {
+				@include mq_phone--from {
+					margin-top: 0;
+				}// END mq_phone--from
+			}
+		}
+	}
+
+	&__free-call {
+		text-decoration: none;
+
+		font-weight: bold;
+
+		line-height: 25px;
+		font-size: 22px;
+
+		@include mq_phone {
+			font-size: 18px;
+		}// END mq_phone
+		&, &:hover {
+			color: #0065a5;
+		}
+	}
+
+	&-info {
+		$ico: &;
+		position: relative;
+		padding-left: 28px;
+		margin-left: 3px;
+		& + & {
+			margin-top: -3px;
+		}
+		&:before {
+			position: absolute;
+
+			color: $color-blue;
+			@include icomoon;
+		}
+		&--clock:before {
+			top: 4px;
+			left: 0;
+			content:'\e902';
+			font-size: 15px;
+		}
+		&--place:before {
+			top: 5px;
+		    left: 4px;
+			content:'\e904';
+			font-size: 14px;
+		}
+		&--phone:before {
+			top: 5px;
+			left: 0;
+			content:'\e906';
+			font-size: 14px;
+			font-weight: bold;
+		}
+		&--mobile:before {
+			top: 5px;
+			left: 0;
+			content:'\e905';
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+	}// END &-info
+	&__anchor {
+		border-bottom: 1px dotted $color-blue;
+		cursor: pointer;
+		color: $color-blue;
+		&:hover {
+			color: #000;
+			border-color: transparent;
+		}
+	}
+	&__silver {
+		display: block;
+		// margin-top: 10px;
+		margin-top: 1px;
+		margin-bottom: -6px;
+		color: #666;
+	}
+	&__delivery	 {
+		display: block;
+		position: relative;
+		padding-left: 78px;
+
+		font-size: 14px;
+		line-height: 19px;
+		color: #0362a4;
+		span {
+			border-bottom: 1px solid;
+		}
+		&, &:hover {
+			text-decoration: none;
+		}
+		&:hover {
+			color: #333;
+			span {
+				border-color: transparent;
+			}
+		}
+		&:before {
+			@include icomoon;
+			position: absolute;
+			top: -8px;
+		    left: 1px;
+		    font-size: 58px;
+			color: #0362a4;
+			content:'\e903';
+		}
+
+	}
+}// END contacts
+.catalog-detail--contacts {
+	.tabs__caption {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	.tabs__content {
+		border-bottom: none;
+	}
+	.tabs .r-tabs-accordion-title {
+		border: none;
+	}
+	@include mq_phone {
+		margin-bottom: 10px;
+	}// END mq_phone	
+}

@@ -1,0 +1,61 @@
+@@include('header/head.html', {
+	"introORout":"intro"
+})
+
+
+<div class="site-wrapper">
+	<div class="site-wrapper__main">
+	@@include('header/header.html', {
+		"introORout":"out"
+	})
+	@@include('menu-area/menu-area.html')
+
+	<div class="container">
+		<div class="row">
+
+
+		<form class="form" action="#">
+			<h1>Заказать обратный звонок</h1>
+			<div class="form-inside">
+
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Ваше имя<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" name="form_textm_1" value="" placeholder="" type="text">
+				</label>
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Телефон<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" name="form_textm_9" value="" type="tel">
+				</label>
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Ваш город<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" name="form_textm_6" value="" type="text">
+				</label>
+				<label class="form-group form-group--beside">
+					<span class="form-group__title">Интересующее оборудование<svg class="icon icon-star"><use xlink:href="#icon-star"/></svg></span>
+					<input class="form-group__input inputtext" name="form_textm_6" placeholder="Не выбрано" type="text">
+				</label>
+				<div class="form-caption">
+					<svg class="icon icon-star form-caption__align"><use xlink:href="#icon-star"></use></svg>
+					<span class="form-caption__align"> - Обязательные для заполенения поля</span>
+				</div>
+
+
+				@@include('personal-data/personal-data.html')
+				<input name="web_form_submit" value="Отправить" class="button buttonSend" type="button">
+
+
+
+			</div><!-- END form-inside -->
+		</form>
+
+
+
+
+
+
+		</div><!-- END row -->
+	</div><!-- END container -->
+</div><!-- END site-wrapper__main -->
+
+
+@@include('footer/footer.html')

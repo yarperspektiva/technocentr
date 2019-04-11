@@ -1,0 +1,68 @@
+$color-blue: #0065a5;
+$ff-roboto: 'Roboto Condensed', sans-serif;
+
+@mixin icomoon() {
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin column-break {
+	-webkit-column-break-inside:avoid;
+	   -moz-column-break-inside:avoid;
+			column-break-inside:avoid;
+}
+
+
+
+@mixin mq_notebook {
+	@media all and (min-width: 980px) and (max-width: 1275px) {
+		@content;
+	}
+}
+@mixin mq_mobile--from {
+	@media all and (min-width: 980px) {
+		@content;
+	}
+}
+@mixin mq_mobile {
+	@media all and (max-width: 979px) {
+		@content;
+	}
+}
+
+
+@mixin mq_tablet {
+	@media all and (min-width: 768px) and (max-width: 979px) {
+		@content;
+	}
+}
+@mixin mq_phone--from() {
+	// юзаем ---> @include mq_phone {}
+    @media all and (min-width: 768px) {
+        @content;
+    }
+}
+
+
+@mixin mq_phone() {
+    @media all and (max-width: 767px) {
+        @content;
+    }
+}
+@mixin mq_480() {
+    @media all and (max-width: 479px) {
+        @content;
+    }
+}
+@mixin mq_400() {
+    @media all and (max-width: 400px) {
+        @content;
+    }
+}

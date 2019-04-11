@@ -1,0 +1,25 @@
+.form-group__policy {
+	position: relative;
+	padding-left: 27px;
+	margin-top: 33px;
+	margin-bottom: 32px;
+	@include mq_phone {
+		margin-bottom: 42px;
+	}// END mq_phone
+
+
+	font-size: 13px;
+	line-height: 18px;
+	color: #686868;
+	.form-group__ico {
+		top: 0px;
+	    left: 1px;
+	}
+	.form-group--checkbox {
+		display: inline;
+		padding-left: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+}

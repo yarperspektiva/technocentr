@@ -1,0 +1,137 @@
+<div class="header-wrapper">
+	<div class="container visible-print print-header">
+		<div class="row">
+			<div class="col-xs-2 print-logo"><img src="images/logo_print.jpg" alt="Техноцентр" class="logo__pic img-responsive"></div>
+			<div class="col-xs-10 print-contacts">
+				<div class="print-contacts__header">ЗАВОД СПЕЦИАЛЬНОГО МАШИНОСТРОЕНИЯ «ТЕХНО-ЦЕНТР»</div>
+				<div class="print-contacts__line">152915, Россия, Ярославская обл, г. Рыбинск, ул. Нансена, д.20&nbsp;&nbsp;&nbsp;&nbsp;www.techno-centr.ru </div>
+				<div class="print-contacts__line">+7 (4855) 26-28-53, 29-51-19, 26-77-00, 28-98-02, 8-800-100-77-23&nbsp;&nbsp;&nbsp;&nbsp;npp@techno-centr.ru</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-wrapper-area hidden-print">
+		<div class="search-panel hidden-md hidden-lg">
+			<div class="search is-active">
+				<form action="/search/" method="get">
+					<input class="search__input" type="text" name="q" placeholder="Поиск оборудования">
+					<button class="search__button" type="submit">
+						<svg class="icon icon--search">
+							<use xlink:href="#icon-search"></use>
+						</svg>
+					</button>
+				</form>
+
+
+			</div><!-- END search -->
+		</div>
+
+
+		<div class="header-bg">
+			<div class="container">
+				<div class="header row">
+					<div class="header__block-align col-sm-1 visible-sm text-center">
+						<a class="js-open-sidebar-menu" href="#" title="Меню">
+							<svg class="icon icon--catalog">
+								<use xlink:href="#icon-catalog"></use>
+							</svg>
+						</a>
+					</div>
+					<div class="header__logo col-xs-12 col-sm-5 col-md-5">
+						<a href="#" class="logo"><img src="images/logo.png" alt="Техноцентр" class="logo__pic img-responsive"></a>
+						<div class="header-logo-footer">
+							<a target="_blank" href="http://www.techno-centr.ru" class="header-logo-footer__sublink">www.techno-centr.ru</a>
+							<a target="_blank" href="http://www.npptc.ru" class="header-logo-footer__sublink">www.npptc.ru</a>
+						</div>
+					</div>
+					<div class="col-xs-2 visible-xs text-center">
+						<a class="js-open-sidebar-menu" href="#" title="Меню">
+							<svg class="icon icon--catalog">
+								<use xlink:href="#icon-catalog"></use>
+							</svg>
+						</a>
+					</div>
+					<div class="header__block-align col-xs-6 col-sm-3 col-md-7 text-right">
+						<div class="header-contacts">
+							<div class="header-contacts__phone">
+								<div class="phone">
+									<div class="phone__text">8 800 350-05-78</div>
+								</div>
+								<div class="header-contacts__text hidden-xs hidden-sm">
+									<span class="header-contacts__free">бесплатно по России</span>
+									<span class="header-contacts__work">часы работы:</span> пн-пт: 8:00-17:00
+								</div>
+								<div class="header-contacts-align">
+									<a class="callback-link" href="http://ya.ru/">
+										<div class="badge-phone">
+											<svg class="icon icon--phone">
+												<use xlink:href="#icon-phone"></use>
+											</svg>
+										</div>
+										<div class="pdeudo-link">Заказать звонок</div>
+									</a>
+									<a class="send-link" href="http://ya.ru/">
+										<div class="badge-phone">
+											<svg class="icon icon--message">
+												<use xlink:href="#icon-message"></use>
+											</svg>
+										</div>
+										<div class="pdeudo-link">Отправить запрос</div>
+									</a>
+								</div>
+							</div>
+							<div class="header-contacts__right">
+
+								@@if(introORout == 'intro'){
+									<span class="header-room__preheader hidden-sm visible-lg">Личный кабинет<br>клиента</span>
+									<a class="header-room header-room--intro" rel="nofollow" data-open-popup-default href="/local/ajax/form-auth.php">
+										<span class="header-room__link">
+											<span class="hidden-sm visible-lg">Войти</span>
+											<span class="visible-sm ">Войти</span>
+										</span>
+									</a>
+								}
+								@@if(introORout == 'out'){
+									<span class="header-room__preheader hidden-sm visible-lg">Иван Владимирский <span>ООО «Завод Полимермаш»</span></span>
+									<a class="header-room header-room--out" href="#">
+										<span class="header-room__link">
+											<span class="hidden-sm visible-lg">Выйти</span>
+											<span class="visible-sm">Выйти</span>
+										</span>
+									</a>
+								}
+
+
+
+							</div>
+						</div>
+					</div>
+					<div class="header__block-align col-xs-4 col-sm-3 hidden-md hidden-lg text-center">
+						<a class="js-search-open" href="#" title="Поиск">
+							<svg class="icon icon--search">
+								<use xlink:href="#icon-search"></use>
+							</svg>
+						</a>
+						@@if(introORout == 'intro'){
+							<a class="header-room header-room--intro" rel="nofollow" data-open-popup-default href="/local/ajax/form-auth.php">
+								<span class="header-room__link">
+									<span class="visible-sm ">Войти</span>
+								</span>
+							</a>
+						}
+						@@if(introORout == 'out'){
+							<a class="header-room header-room--out" href="#">
+								<span class="header-room__link">
+									<span class="visible-sm ">Выйти</span>
+								</span>
+							</a>
+						}
+
+
+
+					</div>
+
+				</div><!-- END header-row -->
+			</div>
+		</div><!-- END header-bg -->
+	</div>
+</div><!-- END header-wrapper -->

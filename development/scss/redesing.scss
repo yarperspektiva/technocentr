@@ -1,0 +1,527 @@
+// @Date:   21-11-2017:08-01-11
+// @Last modified time: 24-01-2018:10-11-04
+@import '_variables.scss';
+@font-face {
+	font-family: 'icomoon';
+	src:  url('../fonts/icomoon/fonts/icomoon.eot?9xr0uc');
+	src:  url('../fonts/icomoon/fonts/icomoon.eot?9xr0uc#iefix') format('embedded-opentype'),
+		  url('../fonts/icomoon/fonts/icomoon.ttf?9xr0uc') format('truetype'),
+		  url('../fonts/icomoon/fonts/icomoon.woff?9xr0uc') format('woff'),
+		  url('../fonts/icomoon/fonts/icomoon.svg?9xr0uc#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+@import '_header-menu.scss';
+@import '_form.scss';
+@import '_faq.scss';
+@import '_youtube.scss';
+
+@import '../modules/header-search-results/header-search-results.scss';
+@import '../modules/personal-data/personal-data.scss';
+@import '../modules/mm-nested-menu/mm-nested-menu.scss';
+@import '../modules/section-contacts/section-contacts.scss';
+@import '../modules/driving-directions/driving-directions.scss';
+
+
+
+.site-wrapper {
+	overflow: hidden; // Добавляю на свой страх и риск
+}
+
+.header__block-align {
+	text-align: left;
+	@include mq_mobile {
+		white-space: nowrap;
+		border-left: none;
+	}
+	@include mq_phone {
+		text-align: right;
+		border-color: transparent;
+	}
+	@include mq_tablet {
+		&.hidden-md {
+			&:before {
+				content:'';
+				position: absolute;
+
+				margin-top: -1px;
+			    left: -9px;
+			    width: 1px;
+			    height: 25px;
+
+				width: 1px;
+				height: 27px;
+				background-color: #c8c8c8;
+			}
+			left: 40px;
+		}
+	}// END mq_tablet
+}
+
+.header-contacts {
+	display: block;
+	@include mq_mobile {
+		&-align {
+			white-space: nowrap;
+		}
+		.phone {
+			display: inline-block;
+			vertical-align: top;
+		}
+		.badge-phone {
+			position: relative;
+			top: -4px;
+		}
+	}
+	@include mq_phone {
+		.phone__text {
+			position: relative;
+			top: 0;
+			font-size: 16px;
+		}
+		.badge-phone {
+			top: -1px;
+			margin-left: 7px;
+		}
+	}
+	&__free {
+		display: block;
+		margin-bottom: -2px;
+		color: #8f8d90;
+	}
+	&__text {
+		display: block;
+		width: auto;
+		padding-left: 0;
+		margin-top: -3px;
+
+		@include mq_mobile {
+			display: none;
+		}
+		font-size: 13px;
+		line-height: 1;
+		color: #8f8d90;
+	}
+	&__work {
+		font-size: 13px;
+		line-height: 1;
+		color: #8f8d90;
+	}
+	&__right {
+		// width: 1%;
+		// width: 100%;
+		width: 100%;
+		max-width: 181px;
+		text-align: left;
+		padding-left: 20px;
+		padding-top: 10px;
+		@include mq_mobile {
+			display: none;
+		}
+
+		.pdeudo-link {
+			font-size: 18px;
+		}
+		.pdeudo-link,
+		.badge-phone {
+			vertical-align: middle;
+			display: inline-block;
+		}
+	}
+
+	&__phone {
+		@include mq_mobile {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		@include mq_tablet {
+			top: -1px;
+		    position: relative;
+		}
+	}
+}// END .header-contacts
+
+.header-room {
+	$class: &;
+	display: block;
+	position: relative;
+	padding-left: 27px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+
+	font-size: 15px;
+	line-height: 19px;
+	color: #000;
+	@include mq_mobile {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 16px;
+		margin-top: 4px;
+		margin-bottom: 7px;
+	}
+	@include mq_phone {
+		width: 23px;
+		height: 23px;
+		padding: 5px;
+	}
+	&__text {
+		display: block;
+	}
+
+	&__link {
+		display: inline-block;
+		position: relative;
+		cursor: pointer;
+		color: #0063a6;
+		@include mq_tablet {
+			font-weight: bold;
+		}
+		@at-root #{$class}--out &:after {
+			display: block;
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			border-bottom: 1px dotted;
+		}
+	}
+
+	&:before {
+		display: block;
+		// width: 20px;
+		// height: 20px;
+
+		content:'';
+		position: absolute;
+		top: 1px;
+		left: -1px;
+		background-image: url(../images/sprites.png);
+		background-repeat: no-repeat;
+		width:  19px;
+		height: 16px;
+	}
+	&--intro:before {
+		background-position: 0 -17px;
+	}
+	&--out:before {
+		background-position: -30px -17px;
+	}
+}// END header-room
+.badge-phone {
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+@media all and (min-width: 980px) {
+	.header {
+		padding-top: 8px;
+		padding-bottom: 12px;
+		.logo {
+			position: relative;
+			left: -10px;
+		}
+	}
+	.header__block-align {
+		margin-top: 7px;
+	}
+}
+
+
+// ADD 29-03-2019
+// font-family: 'Roboto Condensed', sans-serif;
+
+.alert-mess {
+	$class:&;
+	&:before {
+		display: none;
+	}
+	display: block;
+    position: relative;
+    text-align: center;
+    font-size: 0;
+
+	&__pic {
+		display: none;
+	}
+	&__text {
+		display: inline-block;
+		position: relative;
+		padding-right: 0;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 15px;
+		font-weight: bold;
+		line-height: 1;
+
+		border-bottom: 1px solid  rgba(#005eb1, 0.5);
+
+		&:before,
+		&:after  {
+			position: absolute;
+			top: -4px;
+			display:block;
+			border: none;
+			width: 21px;
+			height:19px;
+			background-image: url(../images/alert-mess.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			content:'';
+		}
+		&:before {
+			left:-34px;
+		}
+		&:after {
+			right: -34px;
+		}
+
+	}
+}
+
+@media print {
+	.button-form.js-order {
+		display: none !important;
+	}
+}
+
+.clients {
+	margin-bottom: 12px;
+}
+.h2 + .news-line {
+	 margin-top: 29px;
+ }
+
+
+
+.header-contacts {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 9px;
+	@include mq_mobile {
+		padding-top: 0;
+	}
+	.phone {
+		display: block;
+		margin-bottom: -4px;
+		@include mq_phone {
+			margin-bottom: 0;
+			top: -4px;
+			font-size: 16px;
+		}// END mq_phone
+	}
+	@include mq_mobile--from {
+		.phone__text {
+			font-size: 22px;
+		}
+	}
+	@include mq_phone {
+		padding-top: 2px;
+	}// END mq_phone
+
+
+	&-align {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+
+		margin-top: 5px;
+	    margin-left: 2px;
+		@include mq_tablet {
+			margin-top: 0;
+			margin-left: 10px;
+		}
+		@include mq_phone {
+			margin-top: -1px;
+			margin-left: 8px;
+		}// END mq_phone
+	}
+}// END .header-contacts
+
+
+.header {
+	.callback-link,
+	.send-link {
+		display: block;
+
+		font-size: 15px;
+		line-height: 1;
+		text-align: left;
+	    text-align-last:left;
+		.pdeudo-link {
+			@include mq_mobile {
+				display: none;
+			}// END mq_mobile
+		}
+	}
+	.send-link {
+		@include mq_tablet {
+			display: none;
+		}// END mq_tablet
+		@include mq_400 {
+			display: none;
+		}
+	}
+	.callback-link{
+		margin-right: 25px;
+		@include mq_phone {
+			margin-right: 0;
+		}// END mq_phone
+
+		&:after {
+			display: none;
+		}
+	}
+
+	.pdeudo-link {
+		border-bottom: 1px solid #0063a6;
+		line-height: 18px;
+	}
+	.badge-phone {
+		top: 1px;
+	    left: -1px;
+		@include mq_tablet {
+			    margin-left: 13px;
+		}// END mq_tablet
+	}
+
+	.callback-link .badge-phone {
+		animation: blue-shadow ease-in-out 3s infinite;
+		background-image: linear-gradient( 90deg, rgb(1,102,184) 0%, rgb(0,93,160) 100%);
+	}
+
+	.send-link .badge-phone {
+		animation: red-shadow ease-in-out 3s infinite;
+		background-image: linear-gradient(top, #c21508, #fe0001);
+	}
+	.icon--message {
+		top: 2px;
+		margin-left: 1px;
+	}
+
+
+	&__logo {
+		@include mq_mobile {
+			top: 7px;
+			left: -12px;
+		}
+		@include mq_tablet {
+
+			&:before {
+				content:'';
+				position: absolute;
+				top: 50%;
+				right: 10px;
+
+				width: 1px;
+				height: 27px;
+				background-color: #c8c8c8;
+				margin-top: -10px;
+			}
+		}
+		@include mq_phone {
+			top: auto;
+			left: auto;
+			// margin-bottom: 8px;
+		}// END mq_phone
+	}
+	@include mq_phone {
+		padding-bottom: 24px;
+		//.js-open-sidebar-menu {
+			// display: block;
+		    // position: relative;
+		    // top: 7px;
+		//}
+	}// END mq_phone
+}// END .header
+@keyframes blue-shadow{
+	0%{box-shadow:none}25%{box-shadow:0 0 1px 5px rgba(#005fa5,0.4)}50%{box-shadow:none}100%{box-shadow:none}}
+.header-room__preheader {
+	font-size: 15px;
+	line-height: 19px;
+	color: #5d5d5d;
+	span {
+		display: block;
+		margin-right: -20px;
+		color: #8f8d90;
+		font-size: 14px;
+	}
+}
+
+.header-logo-footer {
+	padding-left: 112px;
+	padding-right: 27px;
+	margin-top: -5px;
+	display: flex;
+	justify-content: space-between;
+	&__sublink {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content:'';
+			border-bottom: 1px solid;
+			position: absolute;
+			bottom: 1px;
+			left: 0;
+			right: 0;
+		}
+		&:hover:before {
+			border-color: transparent
+		}
+		font-size: 13px;
+		line-height: 18px;
+	}
+	@include mq_mobile {
+		display: none;
+	}// END mq_mobile
+}// END .header-logo-footer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// END
