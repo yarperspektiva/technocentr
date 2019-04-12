@@ -41,6 +41,12 @@
 	@include mq_phone {
 		text-align: right;
 		border-color: transparent;
+
+		&.text-center {
+			padding-left: 0;
+			width: auto;
+			float: right;
+		}
 	}
 	@include mq_tablet {
 		&.hidden-md {
