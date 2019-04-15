@@ -71,10 +71,10 @@ $subMenuSmall:'.sub-menu__box--small';
 		padding-left: 20px;
 		padding-right: 20px;
 		text-transform: uppercase;
-		@at-root #{$subMenuSmall} & {
-			border-left: none;
-			border-right: none;
-		}
+		// @at-root #{$subMenuSmall} & {
+		// 	border-left: none;
+		// 	border-right: none;
+		// }
 
 		font-size: 14px;
 		line-height: 17px;
