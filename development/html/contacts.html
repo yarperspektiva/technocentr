@@ -11,7 +11,7 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="content-area col-xs-12">
+					<div class="content-area col-xs-12 remove-float">
 
 						<div class="breadcrumbs"><div class="breadcrumbs__item"><a href="/" title="Главная">Главная</a></div><div class="breadcrumbs__item">&gt;</div><div class="breadcrumbs__item active">Контакты</div></div>
 						<h1>Контакты</h1>
@@ -25,7 +25,7 @@
 								</li>
 								<li>
 									<h2>Адрес предприятия</h2>
-									<p class='contacts-info contacts-info--place'>152915, Россия, Ярославская область, г.Рыбинск, <br>ул. Нансена, д.20 <span data-target='anchor' class='contacts__anchor'>Схема проезда</span></p>
+									<p class='contacts-info contacts-info--place'>152915, Россия, Ярославская область, г.Рыбинск, <br>ул. Нансена, д.20 <a class='contacts__anchor' href='#map'>Схема проезда</a></p>
 									<p class='contacts-info contacts-info--clock'><strong>График работы:</strong> пн-пт с 8:00 до 17:00, <br>обед с 12:00 до 13:00  </p>
 								</li>
 							</ul>
@@ -103,17 +103,18 @@
 								</li>
 
 							</ul>
+
 						</div><!-- END section-contacts -->
-						<div id="anchor"></div>
+
+						<a name="map" class='map-anchor'></a>
 						<h2>Схема проезда</h2>
 
-						<!--'start_frame_cache_contact-map'-->
 						<div class="bx-yandex-view-layout" style='background-color: silver;'>
 							<div class="bx-yandex-view-map">
 								<div id="BX_YMAP_MAP_6ztw5tJEb3" class="bx-yandex-map" style="height: 369px; width: 100%;">загрузка карты...</div>
 							</div>
 						</div>
-						<!--'end_frame_cache_contact-map'-->
+
 					</div><!-- END content-area -->
 					@@include('contacts-tabs/contacts-tabs.html')
 

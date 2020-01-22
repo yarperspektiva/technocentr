@@ -39,14 +39,30 @@ $(document).ready(function() {
 		}
 	});
 
-	$(".contacts__anchor").click(function (){
-		var el = $(this),
-			elTarget = el.data('target'),
-			targetTop = $("#"+elTarget).offset().top;
+	// $(".contacts__anchor").click(function (){
+	// 	var el = $(this),
+	// 		elTarget = el.data('target'),
+	// 		targetTop = $("#"+elTarget).offset().top;
+	//
+	// 	$('html, body').animate({
+	// 		scrollTop: $("#"+elTarget).offset().top - 63
+	// 	}, 200);
+	// });
+	(function fn_technicalTable(){
+		// Для технической страницы. Таблицы закидываем в новый DIV, чтобы можно было повесить отступы
+		var tables = $('.catalog-detail table');
+		if (!tables.length) {
+			return 0;
+		}
+		tables.each(function() {
+			var el = $(this),
+				containerClass = 'table-container';
 
-		$('html, body').animate({
-			scrollTop: $("#"+elTarget).offset().top - 63
-		}, 200);
-	});
+			if ( el.find('caption').length ) {
+				containerClass += ' table-container--caption';
+			}
 
+			el.wrap('<div class="' + containerClass + '"></div>');
+		});
+	})();
 });

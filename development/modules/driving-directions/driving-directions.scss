@@ -78,4 +78,15 @@
 		background-repeat: no-repeat !important;
 		background-position: center !important;
 	}
+
+	.icon--zoom {
+		position: absolute;
+	    bottom: 0;
+	    right: 0;
+	    margin: 0 10px 10px 0;
+
+		width: 30px;
+		height: 30px;
+	}
+
 }// END .driving-directions

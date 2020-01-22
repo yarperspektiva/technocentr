@@ -466,7 +466,7 @@
                                         </div>
                                     </li>
                                     <li class="menu__item">
-                                        <a class="menu-link" href="/contacts/" title="Контакты">Контакты</a></li>
+                                        <a class="menu-link" href="contacts.html" title="Контакты">Контакты</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-4 text-left">
@@ -495,17 +495,7 @@
                                             </ul>
                                         </div><!-- END search -->
                                     </div>
-                                    <!--
-						<div class="search-wrapper__phone">
-							<a class="js-callback callback-link" href="#">
-								<div class="badge-phone hidden-xs hidden-sm">
-									<svg class="icon icon--phone">
-										<use xlink:href="#icon-phone"></use>
-									</svg>
-								</div>
-							</a>
-						</div>
-						-->
+
                                 </div>
                             </div>
                         </div>
@@ -516,7 +506,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="content-area col-xs-12">
+                    <div class="content-area col-xs-12 remove-float">
 
                         <div class="breadcrumbs">
                             <div class="breadcrumbs__item"><a href="/" title="Главная">Главная</a></div>
@@ -534,7 +524,7 @@
                                 </li>
                                 <li>
                                     <h2>Адрес предприятия</h2>
-                                    <p class='contacts-info contacts-info--place'>152915, Россия, Ярославская область, г.Рыбинск, <br>ул. Нансена, д.20 <span data-target='anchor' class='contacts__anchor'>Схема проезда</span></p>
+                                    <p class='contacts-info contacts-info--place'>152915, Россия, Ярославская область, г.Рыбинск, <br>ул. Нансена, д.20 <a class='contacts__anchor' href='#map'>Схема проезда</a></p>
                                     <p class='contacts-info contacts-info--clock'><strong>График работы:</strong> пн-пт с 8:00 до 17:00, <br>обед с 12:00 до 13:00  </p>
                                 </li>
                             </ul>
@@ -612,41 +602,37 @@
                                 </li>
 
                             </ul>
+
                         </div><!-- END section-contacts -->
-                        <div id="anchor"></div>
+
+                        <a name="map" class='map-anchor'></a>
                         <h2>Схема проезда</h2>
 
-                        <!--'start_frame_cache_contact-map'-->
                         <div class="bx-yandex-view-layout" style='background-color: silver;'>
                             <div class="bx-yandex-view-map">
                                 <div id="BX_YMAP_MAP_6ztw5tJEb3" class="bx-yandex-map" style="height: 369px; width: 100%;">загрузка карты...</div>
                             </div>
                         </div>
-                        <!--'end_frame_cache_contact-map'-->
+
                     </div><!-- END content-area -->
+
                     <div class="catalog-detail catalog-detail--contacts">
                         <div class="tabs js-tabs col-md-12 r-tabs">
                             <ul class="tabs__caption tabs-caption r-tabs-nav">
                                 <li class="tabs-caption__item tabs-caption__item--active r-tabs-tab r-tabs-state-active">
                                     <a class="tabs-caption-link r-tabs-anchor" href="#tab-1">
-                                        Схема проезда <br>со стороны Ярославля<svg class="visible-xs hidden-print icon icon--arr-down">
-                                            <use xlink:href="#icon-arr-down">
-                                        </svg>
-                                    </a>
+                                        Схема проезда <br>со стороны Ярославля
+				</a>
                                 </li>
                                 <li class="r-tabs-tab tabs-caption__item">
                                     <a class="tabs-caption-link r-tabs-anchor" href="#tab-2">
-                                        Схема проезда <br>со стороны Углича <svg class="visible-xs hidden-print icon icon--arr-down">
-                                            <use xlink:href="#icon-arr-down">
-                                        </svg>
-                                    </a>
+                                        Схема проезда <br>со стороны Углича
+				</a>
                                 </li>
                                 <li class="r-tabs-tab tabs-caption__item">
                                     <a class="tabs-caption-link r-tabs-anchor" href="#tab-3">
-                                        Схема проезда со стороны<br> Санкт-Петербурга <svg class="visible-xs hidden-print icon icon--arr-down">
-                                            <use xlink:href="#icon-arr-down">
-                                        </svg>
-                                    </a>
+                                        Схема проезда со стороны<br> Санкт-Петербурга
+				</a>
                                 </li>
 
                             </ul>
@@ -667,7 +653,10 @@
                                             <div class="driving-directions__header">
                                                 <p>Перед въездом в г.Рыбинск Вы увидите указатель (с изображением медведя, который держит в лапах лыжи) с надписью 'ДЕМИНО' - за указателем поверните налево на окружную дорогу. Следуйте по окружной дороге до первого светофора.</p>
                                             </div>
-                                            <span class="driving-directions__picture" style='background-image: url(http://techno-centr.ru/upload/medialibrary/531/531d69019deffb7fe4aa7cd4c5664bf4.jpg);'></span>
+                                            <a class="js-fancybox driving-directions__picture" href="http://techno-centr.ru/upload/medialibrary/531/531d69019deffb7fe4aa7cd4c5664bf4.jpg" style='background-image: url(http://techno-centr.ru/upload/medialibrary/531/531d69019deffb7fe4aa7cd4c5664bf4.jpg);'><svg class="icon icon--zoom">
+                                                    <use xlink:href="#icon-zoom">
+                                                    </use>
+                                                </svg></a>
                                         </div>
                                     </div>
                                     <div class="driving-directions__list">
@@ -675,7 +664,10 @@
                                             <div class="driving-directions__header">
                                                 <p>На первом светофоре поверните направо. Следуйте до автозаправки ТАТНЕФТЬ.</p>
                                             </div>
-                                            <span class="driving-directions__picture" style='background-image: url(http://techno-centr.ru/upload/medialibrary/a6c/a6ca57fe5222f61458152d0028d2fea4.jpg);'></span>
+                                            <a class="js-fancybox driving-directions__picture" href="http://techno-centr.ru/upload/medialibrary/a6c/a6ca57fe5222f61458152d0028d2fea4.jpg" style='background-image: url(http://techno-centr.ru/upload/medialibrary/a6c/a6ca57fe5222f61458152d0028d2fea4.jpg);'><svg class="icon icon--zoom">
+                                                    <use xlink:href="#icon-zoom">
+                                                    </use>
+                                                </svg></a>
                                         </div>
                                     </div>
                                     <div class="driving-directions__list">
@@ -683,7 +675,10 @@
                                             <div class="driving-directions__header">
                                                 <p>Слева Вы увидите автозаправку ТАТНЕФТЬ - сразу за ней поверните налево (Вы проедете между автозаправкой и оцинкованным забором) и следуйте ~100 м до проходной.</p>
                                             </div>
-                                            <span class="driving-directions__picture" style='background-image: url(http://techno-centr.ru/upload/medialibrary/554/5545c89ea3b139aea6cecad478056467.jpg);'></span>
+                                            <a class="js-fancybox driving-directions__picture" href="http://techno-centr.ru/upload/medialibrary/554/5545c89ea3b139aea6cecad478056467.jpg" style='background-image: url(http://techno-centr.ru/upload/medialibrary/554/5545c89ea3b139aea6cecad478056467.jpg);'><svg class="icon icon--zoom">
+                                                    <use xlink:href="#icon-zoom">
+                                                    </use>
+                                                </svg></a>
                                         </div>
                                     </div>
                                     <div class="driving-directions__list">
@@ -691,13 +686,17 @@
                                             <div class="driving-directions__header">
                                                 <p>Проходная ООО 'Техно-центр'</p>
                                             </div>
-                                            <span class="driving-directions__picture" style='background-image: url(http://techno-centr.ru/upload/medialibrary/786/78650f7f95292c3edf99fd4cd3b9d1d3.jpg);'></span>
+                                            <a class="js-fancybox driving-directions__picture" href="http://techno-centr.ru/upload/medialibrary/786/78650f7f95292c3edf99fd4cd3b9d1d3.jpg" style='background-image: url(http://techno-centr.ru/upload/medialibrary/786/78650f7f95292c3edf99fd4cd3b9d1d3.jpg);'><svg class="icon icon--zoom">
+                                                    <use xlink:href="#icon-zoom">
+                                                    </use>
+                                                </svg></a>
                                         </div>
                                     </div>
 
                                 </div><!-- END driving-directions -->
 
-                            </div><!-- END tab-1 -->
+
+                            </div>
 
                         </div><!-- END tabs -->
                         <div class="clear"></div>
@@ -743,7 +742,7 @@
                                         <a href="/partneram/" title="Заказчикам">Заказчикам</a>
                                     </li>
                                     <li class="line-menu__item">
-                                        <a href="/contacts/" title="Контакты">Контакты</a>
+                                        <a href="contacts.html" title="Контакты">Контакты</a>
                                     </li>
                                 </ul>
                             </div>
@@ -881,7 +880,7 @@
                             </div>
                         </li>
                         <li class="menu__item">
-                            <a class="menu-link" href="/contacts/" title="Контакты">Контакты</a>
+                            <a class="menu-link" href="contacts.html" title="Контакты">Контакты</a>
                         </li>
                     </ul>
                 </div>
