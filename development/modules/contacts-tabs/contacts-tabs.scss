@@ -1,0 +1,51 @@
+.r-tabs-accordion-title__box {
+	@include mq_phone {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+
+		// border: 1px solid transparent; // BUG: Без этой строки на внешке не отображается
+		width: 100%; // BUG: Без этой строки на внешке не отображается
+
+
+		background-color: #0164a5;
+		background-image: url(../images/menu-bg.jpg);
+		background-position: top center;
+		background-repeat: no-repeat;
+
+		.r-tabs-accordion-title {
+			min-width: 255px;
+			display: flex;
+		    flex-direction: column;
+		    align-self: flex-end;
+			padding-right: 0 !important;
+			&:last-child {
+				padding-right: 15px !important;
+			}
+
+			.r-tabs-anchor {
+				font-size: 14px;
+				color: #fff;
+			}
+			&.r-tabs-state-active {
+				position: relative;
+				&:before {
+					content:'';
+					position: absolute;
+					bottom: -2px;
+					left: 0;
+					right: 0;
+					height: 3px;
+					background-color: #f60b00;
+				}
+				.r-tabs-anchor {
+					color: #fff;
+				}
+			}
+		}
+		.r-tabs-anchor {
+
+		}
+	}// END mq_phone
+}

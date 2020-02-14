@@ -22,16 +22,22 @@
 
 
 
-
-		<div class="r-tabs-accordion-title r-tabs-state-active">
-			<a href="#tab-1" class="r-tabs-anchor">	Схема проезда <br>со стороны Ярославля
-			</a>
+		<div class="r-tabs-accordion-title__box">
+			<div class="r-tabs-accordion-title r-tabs-state-active">
+				<a href="#tab-1" class="r-tabs-anchor">	Схема проезда <br>со стороны Ярославля</a>
+			</div>
+			<div class="r-tabs-accordion-title stabs ">
+				<a href="javascript:" class="r-tabs-anchor">Схема проезда <br>со стороны Углича</a>
+			</div>
+			<div class="r-tabs-accordion-title stabs ">
+				<a href="javascript:" class="r-tabs-anchor">Схема проезда <br>со стороны Санкт-Петербурга</a>
+			</div>
 		</div>
 
 
 		<div id="tab-1" class="tabs__content tabs__content--active r-tabs-panel r-tabs-state-active" style="display: block;">
 			@@include('driving-directions/driving-directions.html')
-			
+
 		</div>
 
 	</div><!-- END tabs -->
