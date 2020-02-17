@@ -1,1 +1,119 @@
-!function(l){"use strict";l.fn.pin=function(r){var p=0,c=[],d=!1,f=l(window);r=r||{};var o=function(){for(var t=0,e=c.length;t<e;t++){var o=c[t];if(r.minWidth&&f.width()<=r.minWidth)o.parent().is(".pin-wrapper")&&o.unwrap(),o.css({width:"",left:"",top:"",position:""}),r.activeClass&&o.removeClass(r.activeClass),d=!0;else{d=!1;var i=r.containerSelector?o.closest(r.containerSelector):l(document.body),s=o.offset(),a=i.offset(),n=o.offsetParent().offset();o.parent().is(".pin-wrapper")||o.wrap("<div class='pin-wrapper'>");var p=l.extend({top:0,bottom:0},r.padding||{});o.data("pin",{pad:p,from:(r.containerSelector?a.top:s.top)-p.top,to:a.top+i.height()-o.outerHeight()-p.bottom,end:a.top+i.height(),parentTop:n.top}),o.css({width:o.outerWidth()}),o.parent().css("height",o.outerHeight())}}},t=function(){if(!d){p=f.scrollTop();for(var t=[],e=0,o=c.length;e<o;e++){var i=l(c[e]),s=i.data("pin");if(s){t.push(i);var a=s.from-s.pad.bottom,n=s.to-s.pad.top;a+i.outerHeight()>s.end?i.css("position",""):a<p&&p<n?("fixed"!=i.css("position")&&i.css({left:i.offset().left,top:s.pad.top}).css("position","fixed"),r.activeClass&&i.addClass(r.activeClass)):n<=p?(i.css({left:"",top:n-s.parentTop+s.pad.top}).css("position","absolute"),r.activeClass&&i.addClass(r.activeClass)):(i.css({position:"",top:"",left:""}),r.activeClass&&i.removeClass(r.activeClass))}}c=t}},i=function(){o(),t()};return this.each(function(){var t=l(this),e=l(this).data("pin")||{};e&&e.update||(c.push(t),l("img",this).one("load",o),e.update=i,l(this).data("pin",e))}),f.scroll(t),f.resize(function(){o()}),o(),f.load(i),this}}(jQuery),jQuery(document).ready(function(){jQuery(".pinned1").pin({containerSelector:".content-wrapper",minWidth:1024})});
+(function ($) {
+    "use strict";
+    $.fn.pin = function (options) {
+        var scrollY = 0, elements = [], disabled = false, $window = $(window);
+
+        options = options || {};
+
+        var recalculateLimits = function () {
+            for (var i=0, len=elements.length; i<len; i++) {
+                var $this = elements[i];
+
+                if (options.minWidth && $window.width() <= options.minWidth) {
+                    if ($this.parent().is(".pin-wrapper")) { $this.unwrap(); }
+                    $this.css({width: "", left: "", top: "", position: ""});
+                    if (options.activeClass) { $this.removeClass(options.activeClass); }
+                    disabled = true;
+                    continue;
+                } else {
+                    disabled = false;
+                }
+
+                var $container = options.containerSelector ? $this.closest(options.containerSelector) : $(document.body);
+                var offset = $this.offset();
+                var containerOffset = $container.offset();
+                var parentOffset = $this.offsetParent().offset();
+
+                if (!$this.parent().is(".pin-wrapper")) {
+                    $this.wrap("<div class='pin-wrapper'>");
+                }
+
+                var pad = $.extend({
+                  top: 0,
+                  bottom: 0
+                }, options.padding || {});
+
+                $this.data("pin", {
+                    pad: pad,
+                    from: (options.containerSelector ? containerOffset.top : offset.top) - pad.top,
+                    to: containerOffset.top + $container.height() - $this.outerHeight() - pad.bottom,
+                    end: containerOffset.top + $container.height(),
+                    parentTop: parentOffset.top
+                });
+
+                $this.css({width: $this.outerWidth()});
+                $this.parent().css("height", $this.outerHeight());
+            }
+        };
+
+        var onScroll = function () {
+            if (disabled) { return; }
+
+            scrollY = $window.scrollTop();
+
+            var elmts = [];
+            for (var i=0, len=elements.length; i<len; i++) {          
+                var $this = $(elements[i]),
+                    data  = $this.data("pin");
+
+                if (!data) { // Removed element
+                  continue;
+                }
+
+                elmts.push($this); 
+                  
+                var from = data.from - data.pad.bottom,
+                    to = data.to - data.pad.top;
+              
+                if (from + $this.outerHeight() > data.end) {
+                    $this.css('position', '');
+                    continue;
+                }
+              
+                if (from < scrollY && to > scrollY) {
+                    !($this.css("position") == "fixed") && $this.css({
+                        left: $this.offset().left,
+                        top: data.pad.top
+                    }).css("position", "fixed");
+                    if (options.activeClass) { $this.addClass(options.activeClass); }
+                } else if (scrollY >= to) {
+                    $this.css({
+                        left: "",
+                        top: to - data.parentTop + data.pad.top
+                    }).css("position", "absolute");
+                    if (options.activeClass) { $this.addClass(options.activeClass); }
+                } else {
+                    $this.css({position: "", top: "", left: ""});
+                    if (options.activeClass) { $this.removeClass(options.activeClass); }
+                }
+          }
+          elements = elmts;
+        };
+
+        var update = function () { recalculateLimits(); onScroll(); };
+
+        this.each(function () {
+            var $this = $(this), 
+                data  = $(this).data('pin') || {};
+
+            if (data && data.update) { return; }
+            elements.push($this);
+            $("img", this).one("load", recalculateLimits);
+            data.update = update;
+            $(this).data('pin', data);
+        });
+
+        $window.scroll(onScroll);
+        $window.resize(function () { recalculateLimits(); });
+        recalculateLimits();
+
+        $window.load(update);
+
+        return this;
+      };
+})(jQuery);
+
+
+jQuery( document ).ready(function() {
+    jQuery(".pinned1").pin({containerSelector: ".content-wrapper", minWidth: 1024});
+});

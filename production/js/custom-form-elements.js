@@ -1,1 +1,219 @@
-var checkboxHeight="25",radioHeight="25",selectWidth="115";document.write('<style type="text/css">input.styled { display: none; } select.styled { position: relative; width: '+selectWidth+"px; opacity: 0; filter: alpha(opacity=0); z-index: 5; } .disabled { opacity: 0.5; filter: alpha(opacity=50); }</style>");var Custom={init:function(){var e,t,o,i,s=document.getElementsByTagName("input"),n=Array();for(i=0;i<s.length;i++)"checkbox"!=s[i].type&&"radio"!=s[i].type||"styled"!=s[i].className||(n[i]=document.createElement("span"),n[i].className=s[i].type,1==s[i].checked&&("checkbox"==s[i].type?position="0 -"+2*checkboxHeight+"px":position="0 -"+2*radioHeight+"px",n[i].style.backgroundPosition=position),s[i].parentNode.insertBefore(n[i],s[i]),s[i].onchange=Custom.clear,s[i].getAttribute("disabled")?n[i].className=n[i].className+=" disabled":(n[i].onmousedown=Custom.pushed,n[i].onmouseup=Custom.check));for(s=document.getElementsByTagName("select"),i=0;i<s.length;i++)if("styled"==s[i].className){for(o=(t=s[i].getElementsByTagName("option"))[0].childNodes[0].nodeValue,e=document.createTextNode(o),b=0;b<t.length;b++)1==t[b].selected&&(e=document.createTextNode(t[b].childNodes[0].nodeValue));n[i]=document.createElement("span"),n[i].className="select",n[i].id="select"+s[i].name,n[i].appendChild(e),s[i].parentNode.insertBefore(n[i],s[i]),s[i].getAttribute("disabled")?s[i].previousSibling.className=s[i].previousSibling.className+=" disabled":s[i].onchange=Custom.choose}document.onmouseup=Custom.clear},pushed:function(){element=this.nextSibling,1==element.checked&&"checkbox"==element.type?this.style.backgroundPosition="0 -"+3*checkboxHeight+"px":1==element.checked&&"radio"==element.type?this.style.backgroundPosition="0 -"+3*radioHeight+"px":1!=element.checked&&"checkbox"==element.type?this.style.backgroundPosition="0 -"+checkboxHeight+"px":this.style.backgroundPosition="0 -"+radioHeight+"px"},check:function(){var e;if(element=this.nextSibling,1==element.checked&&"checkbox"==element.type)this.style.backgroundPosition="0 0",element.checked=!1;else{if("checkbox"==element.type)this.style.backgroundPosition="0 -"+2*checkboxHeight+"px";else for(this.style.backgroundPosition="0 -"+2*radioHeight+"px",group=this.nextSibling.name,inputs=document.getElementsByTagName("input"),e=0;e<inputs.length;e++)inputs[e].name==group&&inputs[e]!=this.nextSibling&&(inputs[e].previousSibling.style.backgroundPosition="0 0");element.checked=!0}},clear:function(){inputs=document.getElementsByTagName("input");for(var e=0;e<inputs.length;e++)"checkbox"==inputs[e].type&&1==inputs[e].checked&&"styled"==inputs[e].className?inputs[e].previousSibling.style.backgroundPosition="0 -"+2*checkboxHeight+"px":"checkbox"==inputs[e].type&&"styled"==inputs[e].className?inputs[e].previousSibling.style.backgroundPosition="0 0":"radio"==inputs[e].type&&1==inputs[e].checked&&"styled"==inputs[e].className?inputs[e].previousSibling.style.backgroundPosition="0 -"+2*radioHeight+"px":"radio"==inputs[e].type&&"styled"==inputs[e].className&&(inputs[e].previousSibling.style.backgroundPosition="0 0")},choose:function(){for(option=this.getElementsByTagName("option"),d=0;d<option.length;d++)1==option[d].selected&&(document.getElementById("select"+this.name).childNodes[0].nodeValue=option[d].childNodes[0].nodeValue)}};function css_browser_selector(e){var t=e.toLowerCase(),o=function(e){return-1<t.indexOf(e)},i="gecko",s="webkit",n="safari",a="opera",r="mobile",l=document.documentElement,d=[!/opera|webtv/i.test(t)&&/msie\s(\d)/.test(t)?"ie ie"+RegExp.$1:o("firefox/2")?i+" ff2":o("firefox/3.5")?i+" ff3 ff3_5":o("firefox/3.6")?i+" ff3 ff3_6":o("firefox/3")?i+" ff3":o("gecko/")?i:o("opera")?a+(/version\/(\d+)/.test(t)?" "+a+RegExp.$1:/opera(\s|\/)(\d+)/.test(t)?" "+a+RegExp.$2:""):o("konqueror")?"konqueror":o("blackberry")?r+" blackberry":o("android")?r+" android":o("chrome")?s+" chrome":o("iron")?s+" iron":o("applewebkit/")?s+" "+n+(/version\/(\d+)/.test(t)?" "+n+RegExp.$1:""):o("mozilla/")?i:"",o("j2me")?r+" j2me":o("iphone")?r+" iphone":o("ipod")?r+" ipod":o("ipad")?r+" ipad":o("mac")?"mac":o("darwin")?"mac":o("webtv")?"webtv":o("win")?"win"+(o("windows nt 6.0")?" vista":""):o("freebsd")?"freebsd":o("x11")||o("linux")?"linux":"","js"];return c=d.join(" "),l.className+=" "+c,c}if(window.onload=Custom.init,css_browser_selector(navigator.userAgent),jQuery.fn.textPlaceholder=function(){return this.each(function(){var e=this;if(!(e.placeholder&&"placeholder"in document.createElement(e.tagName))){var t=e.getAttribute("placeholder"),o=jQuery(e);""!==e.value&&e.value!=t||(o.addClass("text-placeholder"),e.value=t),o.focus(function(){o.hasClass("text-placeholder")&&(this.value="",o.removeClass("text-placeholder"))}),o.blur(function(){""===this.value?(o.addClass("text-placeholder"),this.value=t):o.removeClass("text-placeholder")}),e.form&&jQuery(e.form).submit(function(){o.hasClass("text-placeholder")&&(e.value="")})}})},!jQuery.browser){var uaMatch=function(e){e=e.toLowerCase();var t=/(chrome)[ \/]([\w.]+)/.exec(e)||/(webkit)[ \/]([\w.]+)/.exec(e)||/(opera)(?:.*version|)[ \/]([\w.]+)/.exec(e)||/(msie) ([\w.]+)/.exec(e)||e.indexOf("compatible")<0&&/(mozilla)(?:.*? rv:([\w.]+)|)/.exec(e)||[];return{browser:t[1]||"",version:t[2]||"0"}};matched=uaMatch(navigator.userAgent),browser={},matched.browser&&(browser[matched.browser]=!0,browser.version=matched.version),browser.chrome?browser.webkit=!0:browser.webkit&&(browser.safari=!0),jQuery.browser=browser}
+/* CUSTOM FORM ELEMENTS */
+
+var checkboxHeight = "25";
+var radioHeight = "25";
+var selectWidth = "115";
+
+
+/* No need to change anything after this */
+
+
+document.write('<style type="text/css">input.styled { display: none; } select.styled { position: relative; width: ' + selectWidth + 'px; opacity: 0; filter: alpha(opacity=0); z-index: 5; } .disabled { opacity: 0.5; filter: alpha(opacity=50); }</style>');
+
+var Custom = {
+	init: function() {
+		var inputs = document.getElementsByTagName("input"), span = Array(), textnode, option, active, a;
+		for(a = 0; a < inputs.length; a++) {
+			if((inputs[a].type == "checkbox" || inputs[a].type == "radio") && inputs[a].className == "styled") {
+				span[a] = document.createElement("span");
+				span[a].className = inputs[a].type;
+
+				if(inputs[a].checked == true) {
+					if(inputs[a].type == "checkbox") {
+						position = "0 -" + (checkboxHeight*2) + "px";
+						span[a].style.backgroundPosition = position;
+					} else {
+						position = "0 -" + (radioHeight*2) + "px";
+						span[a].style.backgroundPosition = position;
+					}
+				}
+				inputs[a].parentNode.insertBefore(span[a], inputs[a]);
+				inputs[a].onchange = Custom.clear;
+				if(!inputs[a].getAttribute("disabled")) {
+					span[a].onmousedown = Custom.pushed;
+					span[a].onmouseup = Custom.check;
+				} else {
+					span[a].className = span[a].className += " disabled";
+				}
+			}
+		}
+		inputs = document.getElementsByTagName("select");
+		for(a = 0; a < inputs.length; a++) {
+			if(inputs[a].className == "styled") {
+				option = inputs[a].getElementsByTagName("option");
+				active = option[0].childNodes[0].nodeValue;
+				textnode = document.createTextNode(active);
+				for(b = 0; b < option.length; b++) {
+					if(option[b].selected == true) {
+						textnode = document.createTextNode(option[b].childNodes[0].nodeValue);
+					}
+				}
+				span[a] = document.createElement("span");
+				span[a].className = "select";
+				span[a].id = "select" + inputs[a].name;
+				span[a].appendChild(textnode);
+				inputs[a].parentNode.insertBefore(span[a], inputs[a]);
+				if(!inputs[a].getAttribute("disabled")) {
+					inputs[a].onchange = Custom.choose;
+				} else {
+					inputs[a].previousSibling.className = inputs[a].previousSibling.className += " disabled";
+				}
+			}
+		}
+		document.onmouseup = Custom.clear;
+	},
+	pushed: function() {
+		element = this.nextSibling;
+		if(element.checked == true && element.type == "checkbox") {
+			this.style.backgroundPosition = "0 -" + checkboxHeight*3 + "px";
+		} else if(element.checked == true && element.type == "radio") {
+			this.style.backgroundPosition = "0 -" + radioHeight*3 + "px";
+		} else if(element.checked != true && element.type == "checkbox") {
+			this.style.backgroundPosition = "0 -" + checkboxHeight + "px";
+		} else {
+			this.style.backgroundPosition = "0 -" + radioHeight + "px";
+		}
+	},
+	check: function() {
+		element = this.nextSibling;
+		var a;
+		if(element.checked == true && element.type == "checkbox") {
+			this.style.backgroundPosition = "0 0";
+			element.checked = false;
+		} else {
+			if(element.type == "checkbox") {
+				this.style.backgroundPosition = "0 -" + checkboxHeight*2 + "px";
+			} else {
+				this.style.backgroundPosition = "0 -" + radioHeight*2 + "px";
+				group = this.nextSibling.name;
+				inputs = document.getElementsByTagName("input");
+				for(a = 0; a < inputs.length; a++) {
+					if(inputs[a].name == group && inputs[a] != this.nextSibling) {
+						inputs[a].previousSibling.style.backgroundPosition = "0 0";
+					}
+				}
+			}
+			element.checked = true;
+		}
+	},
+	clear: function() {
+		inputs = document.getElementsByTagName("input");
+		for(var b = 0; b < inputs.length; b++) {
+			if(inputs[b].type == "checkbox" && inputs[b].checked == true && inputs[b].className == "styled") {
+				inputs[b].previousSibling.style.backgroundPosition = "0 -" + checkboxHeight*2 + "px";
+			} else if(inputs[b].type == "checkbox" && inputs[b].className == "styled") {
+				inputs[b].previousSibling.style.backgroundPosition = "0 0";
+			} else if(inputs[b].type == "radio" && inputs[b].checked == true && inputs[b].className == "styled") {
+				inputs[b].previousSibling.style.backgroundPosition = "0 -" + radioHeight*2 + "px";
+			} else if(inputs[b].type == "radio" && inputs[b].className == "styled") {
+				inputs[b].previousSibling.style.backgroundPosition = "0 0";
+			}
+		}
+	},
+	choose: function() {
+		option = this.getElementsByTagName("option");
+		for(d = 0; d < option.length; d++) {
+			// console.log(option[d].childNodes[0].nodeValue + ' - ' + option[d].selected)
+			if(option[d].selected == true) {
+				document.getElementById("select" + this.name).childNodes[0].nodeValue = option[d].childNodes[0].nodeValue;
+			}
+		}
+	}
+};
+window.onload = Custom.init;
+
+/*
+CSS Browser Selector v0.4.0 (Nov 02, 2010)
+Rafael Lima (http://rafael.adm.br)
+http://rafael.adm.br/css_browser_selector
+License: http://creativecommons.org/licenses/by/2.5/
+Contributors: http://rafael.adm.br/css_browser_selector#contributors
+*/
+function css_browser_selector(u){var ua=u.toLowerCase(),is=function(t){return ua.indexOf(t)>-1},g='gecko',w='webkit',s='safari',o='opera',m='mobile',h=document.documentElement,b=[(!(/opera|webtv/i.test(ua))&&/msie\s(\d)/.test(ua))?('ie ie'+RegExp.$1):is('firefox/2')?g+' ff2':is('firefox/3.5')?g+' ff3 ff3_5':is('firefox/3.6')?g+' ff3 ff3_6':is('firefox/3')?g+' ff3':is('gecko/')?g:is('opera')?o+(/version\/(\d+)/.test(ua)?' '+o+RegExp.$1:(/opera(\s|\/)(\d+)/.test(ua)?' '+o+RegExp.$2:'')):is('konqueror')?'konqueror':is('blackberry')?m+' blackberry':is('android')?m+' android':is('chrome')?w+' chrome':is('iron')?w+' iron':is('applewebkit/')?w+' '+s+(/version\/(\d+)/.test(ua)?' '+s+RegExp.$1:''):is('mozilla/')?g:'',is('j2me')?m+' j2me':is('iphone')?m+' iphone':is('ipod')?m+' ipod':is('ipad')?m+' ipad':is('mac')?'mac':is('darwin')?'mac':is('webtv')?'webtv':is('win')?'win'+(is('windows nt 6.0')?' vista':''):is('freebsd')?'freebsd':(is('x11')||is('linux'))?'linux':'','js']; c = b.join(' '); h.className += ' '+c; return c;} css_browser_selector(navigator.userAgent);
+
+/**
+* Example: inputPlaceholder( document.getElementById('my_input_element') )
+* @param {Element} input
+* @param {String} [color='#AAA']
+* @return {Element} input
+*/
+jQuery.fn.textPlaceholder = function () {
+
+	return this.each(function(){
+
+		var that = this;
+
+		if (that.placeholder && 'placeholder' in document.createElement(that.tagName)) return;
+
+		var placeholder = that.getAttribute('placeholder');
+		var input = jQuery(that);
+
+		if (that.value === '' || that.value == placeholder) {
+			input.addClass('text-placeholder');
+			that.value = placeholder;
+		}
+
+		input.focus(function(){
+			if (input.hasClass('text-placeholder')) {
+				this.value = '';
+				input.removeClass('text-placeholder')
+			}
+		});
+
+		input.blur(function(){
+			if (this.value === '') {
+				input.addClass('text-placeholder');
+				this.value = placeholder;
+			} else {
+				input.removeClass('text-placeholder');
+			}
+		});
+
+		that.form && jQuery(that.form).submit(function(){
+			if (input.hasClass('text-placeholder')) {
+				that.value = '';
+			}
+		});
+
+	});
+
+};
+
+
+// jQuery 1.9 has removed the `$.browser` property, fancybox relies on
+// it, so we patch it here if it's missing.
+// This has been copied from jQuery migrate 1.1.1.
+if ( !jQuery.browser ) {
+  var uaMatch = function( ua ) {
+    ua = ua.toLowerCase();
+
+    var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+      /(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+      /(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+      /(msie) ([\w.]+)/.exec( ua ) ||
+      ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+      [];
+
+    return {
+      browser: match[ 1 ] || "",
+      version: match[ 2 ] || "0"
+    };
+  };
+
+  matched = uaMatch( navigator.userAgent );
+  browser = {};
+
+  if ( matched.browser ) {
+    browser[ matched.browser ] = true;
+    browser.version = matched.version;
+  }
+
+  // Chrome is Webkit, but Webkit is also Safari.
+  if ( browser.chrome ) {
+    browser.webkit = true;
+  } else if ( browser.webkit ) {
+    browser.safari = true;
+  }
+
+  jQuery.browser = browser;
+}

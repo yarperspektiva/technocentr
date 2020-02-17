@@ -1,0 +1,6 @@
+@include mq_phone {
+	.contacts-info [href^=tel]{
+		border-bottom: 1px solid #0063a6;
+		padding-bottom: 2px;
+	}
+}
