@@ -1,0 +1,56 @@
+@@include('header/head.html', {
+	"introORout":"intro"
+})
+	<div class="site-wrapper">
+		<div class="site-wrapper__main">
+
+		@@include('header/header.html', {
+			"introORout":"intro"
+		})
+		@@include('menu-area/menu-area.html')
+
+			<div class="container">
+				<div class="row">
+					<div class="left-menu-wrapper hidden-print visible-md visible-lg col-md-4">
+
+					</div><!-- END .left-menu-wrapper hidden-print visible-md visible-lg col-md-4 -->
+					<div class="content-area content-area--regular col-xs-12 col-md-8">
+						@@include('tab/tab.html')
+
+					</div><!-- END .content-area content-area--regular col-xs-12 col-md-8 -->
+				</div><!-- END .row -->
+
+
+
+
+
+
+				<div class="h2">Наши Заказчики</div>
+				<div class="news-line">
+					<div class="row">
+						<div class="news-line__item col-xs-12 col-sm-6" id="bx_3485106786_525">
+							<small><b>13.03.2019</b></small><br>
+							<a href="/news/probnyy-razmol-dioksida-tsirkoniya/" title="Пробный размол диоксида циркония">Пробный размол диоксида циркония</a>
+						</div>
+						<div class="news-line__item col-xs-12 col-sm-6" id="bx_3485106786_524">
+							<small><b>07.03.2019</b></small><br>
+							<a href="/news/s-8m-marta/" title="С 8-м марта!">С 8-м марта!</a>
+						</div>
+					</div>
+					<a class="news-line-all-link" href="/news/" title="Все события">Все события</a>
+				</div><!-- END news-line -->
+			</div><!-- END container -->
+		</div><!-- END site-wrapper__main -->
+
+
+
+
+
+
+
+
+
+
+
+
+	@@include('footer/footer.html')

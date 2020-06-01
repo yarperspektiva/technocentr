@@ -31,9 +31,17 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-4">
-						<p>152915, Россия, Ярославская&nbsp;обл., г.&nbsp;Рыбинск, ул.&nbsp;Нансена,&nbsp;20.</p>
-						<p>+7 (4855) 26-28-53<br>
-							+7 800-100-77-23</p>
+						<div itemscope="" itemtype="http://schema.org/Organization">
+							<span itemprop="name" style="display: none;">ООО «Техно-центр»</span>
+							<div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+								<p><span itemprop="postalCode">152915</span>, Россия, Ярославская&nbsp;обл., <span itemprop="addressLocality">г.&nbsp;Рыбинск</span>, <span itemprop="streetAddress">ул.&nbsp;Нансена,&nbsp;20</span>.</p>
+							</div>
+
+
+							<p><span itemprop="telephone">+7 (4855) 26-28-53</span></p>
+							<p id="ya-phone-1"><span itemprop="telephone">+7 800 350-05-78</span></p>
+
+						</div>
 					</div>
 					<div class="col-xs-12 col-sm-8">
 						<p><small>Материалы, размещенные на сайте techno-centr.ru являются исключительной собственностью techno-centr.ru и защищены законодательством РФ об авторском праве. Полное или частичное использование материалов сайта возможно только с
@@ -100,27 +108,28 @@
 <link href="css/personal-data.css" type="text/css" rel="stylesheet" />
 <link href="css/redesing.css" type="text/css" rel="stylesheet" />
 
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 
 <script type="text/javascript" src="http://techno-centr.ru/bitrix/js/main/core/core.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/bitrix/js/main/core/core_ajax.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/bitrix/js/main/json/json2.min.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/bitrix/js/main/core/core_ls.js"></script>
+
 <script type="text/javascript" src="http://techno-centr.ru/bitrix/js/main/jquery/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/bitrix/js/main/core/core_popup.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/personal-data.js"></script>
-<script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/jquery/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/slick/slick.min.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/fancybox/helpers/jquery.fancybox-media.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/fancybox/helpers/jquery.fancybox-thumbs.js"></script>
-<!-- <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/maskedinput.min.js?15434065764324"></script> -->
-<!-- <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/jquery.inputmask-multi.min.js?15434065766459"></script> -->
-<!-- <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/jquery.inputmask.bundle.min.js?154340657671334"></script> -->
+
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/plugins/responsiveTabs.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/debug.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/system.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/functions/modal.js?15434065761036"></script>
+
 <script type="text/javascript" src="js/general.js"></script> <!-- НЕ ЗАЛИВАТЬ НА ВНЕШКУ! НЕ ЗАЛИВАТЬ! УБРАЛ ЧАСТЬ КОДА -->
+
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/popup.min.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/js/registration-page.min.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/components/bitrix/news.list/index_slider/script.js"></script>
@@ -128,6 +137,9 @@
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/components/bitrix/news.list/clients/script.js"></script>
 <script type="text/javascript" src="http://techno-centr.ru/local/templates/2016/components/teamprofi/empty/button-form/script.js"></script>
 <script type="text/javascript" src="js/redesing.js"></script>
+
+
+@@include('footer-link/footer-link.html')
 </body>
 
 </html>

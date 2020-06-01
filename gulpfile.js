@@ -42,7 +42,7 @@ const gulp         = require('gulp'),
 
 const srcPath  = 'development',
 	  destPath = 'production',
-	  final    = false;
+	  final    = true;
 
 // config
 const config = {
